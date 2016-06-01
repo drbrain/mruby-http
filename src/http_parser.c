@@ -859,6 +859,8 @@ size_t http_parser_execute (http_parser *parser,
         parser->status_code *= 10;
         parser->status_code += ch - '0';
 
+	fprintf(stderr, "status_code: %d\n", parser->status_code);
+
         if (parser->status_code > 999) {
           SET_ERRNO(HPE_INVALID_STATUS);
           goto error;
